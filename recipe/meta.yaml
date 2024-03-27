@@ -1,5 +1,5 @@
 {% set name = "graylint" %}
-{% set version = "1.0.0" %}
+{% set version = "1.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/graylint-{{ version }}.tar.gz
-  sha256: f7e1296cd1595d818259fdfc13b484856889c2bbe81f4ac4724e3bc39b43e973
+  sha256: 857c84bd430ccf261b0acd80d565b6d16dba6fa5055ddbe6d738eda5a59a59ba
 
 build:
   entry_points:
