@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/graylint-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/graylint-{{ version }}.tar.gz
   sha256: a50d405caf7a95c66ee066959dcf89154114f426374c5b047cfb7e7a2ec11c87
 
 build:
@@ -14,16 +14,16 @@ build:
     - graylint = graylint.__main__:main_with_error_handling
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools
     - wheel
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - darkgraylib >=2.0.0,<3.0.dev0
 
 test:
@@ -34,6 +34,7 @@ test:
     - graylint --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/akaihola/graylint
